@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="2.1" xmlns:hj3="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	jxb:extensionBindingPrefixes="hj orm">
+
+	<jxb:bindings schemaLocation="Account.xsd" node="/xs:schema">
+
+		<jxb:globalBindings localScoping="toplevel">
+			<xjc:simple />
+			<jxb:serializable uid="1" />
+		</jxb:globalBindings>
+
+		<!-- Use all existing fields called "Id" as database ID column -->
+		<jxb:bindings node="//xs:element[@name='Id']" multiple="true">
+			<jxb:property>
+				<jxb:javadoc>@hyperjaxb.hibernate.id unsaved-value="null" generator-class="assigned"</jxb:javadoc>
+			</jxb:property>
+			<hj3:id>
+				<!-- <orm:generated-value strategy="AUTO"/> -->
+			</hj3:id>
+		</jxb:bindings>
+
+	</jxb:bindings>
+
+</jxb:bindings>
