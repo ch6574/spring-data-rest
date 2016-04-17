@@ -11,10 +11,13 @@ keytool -genkey -alias tomcat -keyalg RSA -storepass qwerty -keystore keystore.r
 
 # Build and run
 mvn clean compile package
-mvn spring-boot:run
+java -jar target/data-rest-demo-0.0.1-SNAPSHOT.jar
 
 # In a web browser visit the HAL browser (ignore the certificate warnings)
-https:localhost:9000/
+https://localhost:9000/
+
+# Also the H2 database console
+https://localhost:9000/h2-console
 ```
 # Note
 Check http://docs.spring.io/spring-data/rest/docs/current/reference/html/ for full documentation
